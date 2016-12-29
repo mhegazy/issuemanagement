@@ -49,11 +49,11 @@ async function closeIssues() {
         timeout: 5000
     });
 
-    // user token
-    // github.authenticate({
-    //     type: "token",
-    //     token: token,
-    // });
+    // Authenticate
+    github.authenticate({
+        type: "token",
+        token: token,
+    });
 
     try {
         await processPages();

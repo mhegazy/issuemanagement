@@ -1,5 +1,5 @@
 {
-  "name": "issueManagemnt",
+  "name": "issuemanagemnt",
   "version": "0.0.1",
   "description": "Closes stale github issues.",
   "scripts": {
