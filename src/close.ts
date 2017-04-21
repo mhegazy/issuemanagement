@@ -208,8 +208,9 @@ async function closeIssues() {
             if (settings.debug) {
                 console.log(`== Done!`);
             }
-            return false;
+
         }
+        return false;
     }
 }
 
