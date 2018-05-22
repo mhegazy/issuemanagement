@@ -1,4 +1,4 @@
 node_modules/
 lib/*
 logs/*
-src/token.ts
+src/token.json

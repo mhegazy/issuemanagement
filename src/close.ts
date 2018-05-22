@@ -1,8 +1,8 @@
-import GitHubApi = require("github");
-import settings = require("./settings");
-import token = require("./token");
-import fs = require("fs");
-import path = require("path");
+import fs from "fs";
+import GitHubApi from "github";
+import path from "path";
+import settings from "./settings.json";
+import token from "./token.json";
 
 const repo = { owner: settings.owner, repo: settings.repo };
 const cutoffDate = new Date((new Date()).getTime() - (settings.dayesSinceLastEdit * 24 * 60 * 60 * 1000));
