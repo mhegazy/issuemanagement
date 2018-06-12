@@ -6,7 +6,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "./node_modules/.bin/tsc --p ./tsconfig.json",
     "watch": "./node_modules/.bin/tsc --w --p ./tsconfig.json",
-    "close": "node lib/close.js"
+    "close": "node lib/close.js",
+    "closeprs": "node lib/closePRs.js"
   },
   "keywords": [],
   "author": "Mohamed Hegazy",

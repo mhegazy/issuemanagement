@@ -9,5 +9,11 @@
     "dry": false,
     "debug": false,
     "logFolder": "../logs",
-    "statsFolder": "../stats"
+    "statsFolder": "../stats",
+    "pr":{
+        "dayesSinceLastEdit": 180,
+        "maxProcessed": -1,
+        "maxClosed": -1,
+        "closeMessage": "Thanks for your contribution. This PR has not been updated in a while and cannot be automatically merged at the time being. For housekeeping purposes we are closing stale PRs. If you'd still like to continue working on this PR, please leave a message and one of the maintainers can reopen it.",
+    }
 }

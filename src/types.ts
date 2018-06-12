@@ -190,3 +190,78 @@ interface Links {
 interface Link {
     href: string;
 }
+
+interface Branch {
+    "label": string,
+    "ref": string,
+    "sha": string,
+    "user": User;
+    "repo": Repo;
+}
+
+interface PullRequest {
+    "url": string;
+    "repository_url": string;
+    "labels_url": string;
+    "comments_url": string;
+    "events_url": string;
+    "html_url": string;
+    "id": number;
+    "number": number;
+    "title": string;
+    "user": User;
+    "labels": Label[];
+    "state": "open" | "closed"
+    "locked": boolean;
+    "assignee": User | null;
+    "assignees": User[];
+    "milestone": Milestone;
+    "comments": number;
+    "created_at": string | null;
+    "updated_at": string | null;
+    "closed_at": string | null;
+    "merged_at": string | null;
+    "body": string | null;
+    "closed_by"?: User;
+    "head": Branch;
+    "base": Branch;
+    "mergeable": boolean | null;
+}
+
+interface Repo {
+    "id": number,
+    "node_id": string,
+    "owner": User,
+    "name": string,
+    "full_name": string,
+    "description": string,
+    "private": boolean,
+    "fork": boolean,
+    "url": string,
+    "language": string | null,
+    "forks_count": number,
+    "stargazers_count": number,
+    "watchers_count": number,
+    "size": number,
+    "default_branch": string,
+    "open_issues_count": number,
+    "topics": string[];
+    "has_issues": boolean,
+    "has_wiki": boolean,
+    "has_pages": boolean,
+    "has_downloads": boolean,
+    "archived": boolean,
+    "pushed_at": string,
+    "created_at": string,
+    "updated_at": string,
+    "permissions": {
+        "admin": boolean,
+        "push": boolean,
+        "pull": boolean
+    },
+    "allow_rebase_merge": boolean,
+    "allow_squash_merge": boolean,
+    "allow_merge_commit": boolean,
+    "subscribers_count": number;
+    "network_count": number;
+}
