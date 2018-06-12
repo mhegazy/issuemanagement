@@ -5,9 +5,9 @@ import settings from "./settings.json";
 import token from "./token.json";
 
 const repo = { owner: settings.owner, repo: settings.repo };
-const cutoffDate = new Date((new Date()).getTime() - (settings.dayesSinceLastEdit * 24 * 60 * 60 * 1000));
-const maxProcessedIssues = settings.maxProcessedIssues > 0 ? settings.maxProcessedIssues : Infinity;
-const maxClosedIssues = settings.maxClosedIssues > 0 ? settings.maxClosedIssues : Infinity;
+const cutoffDate = new Date((new Date()).getTime() - (settings.issue.dayesSinceLastEdit * 24 * 60 * 60 * 1000));
+const maxProcessedIssues = settings.issue.maxProcessedIssues > 0 ? settings.issue.maxProcessedIssues : Infinity;
+const maxClosedIssues = settings.issue.maxClosedIssues > 0 ? settings.issue.maxClosedIssues : Infinity;
 
 function stringify(o: any) {
     return JSON.stringify(o, undefined, 2);
@@ -156,18 +156,18 @@ async function closeIssues() {
                 continue;
             }
 
-            if (!issue.labels.every(l => settings.labelsToClose.indexOf(l.name) >= 0)) {
+            if (!issue.labels.every(l => settings.issue.labelsToClose.indexOf(l.name) >= 0)) {
                 if (settings.debug) {
                     console.log(`==== Issue has unkown labels: ${(issue.labels.map(l => l.name)).join(",")}, skipping.`);
                 }
                 continue;
             }
 
-            if (settings.closeMessage) {
+            if (settings.issue.closeMessage) {
                 console.log(`==== Adding comment...`);
                 if (!settings.dry) {
                     // Add it
-                    const comment: Response & Comment = await github.issues.createComment({ ...repo, number: issue.number, body: settings.closeMessage });
+                    const comment: Response & Comment = await github.issues.createComment({ ...repo, number: issue.number, body: settings.issue.closeMessage });
                     // Record it
                     commentsAdded.push(comment);
                     // Log it

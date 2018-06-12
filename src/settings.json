@@ -1,11 +1,13 @@
 {
     "owner": "Microsoft",
     "repo": "TypeScript",
-    "dayesSinceLastEdit": 14,
-    "maxProcessedIssues": -1,
-    "maxClosedIssues": -1,
-    "labelsToClose": ["By Design", "Design Limitation", "Duplicate", "Question", "Won't Fix", "Working as Intended", "Needs More Info", "External", "Declined", "Too Complex", "Out of Scope"],
-    "closeMessage": "Automatically closing this issue for housekeeping purposes. The issue labels indicate that it is unactionable at the moment or has already been addressed.",
+    "issue": {
+        "dayesSinceLastEdit": 14,
+        "maxProcessedIssues": -1,
+        "maxClosedIssues": -1,
+        "labelsToClose": ["By Design", "Design Limitation", "Duplicate", "Question", "Won't Fix", "Working as Intended", "Needs More Info", "External", "Declined", "Too Complex", "Out of Scope"],
+        "closeMessage": "Automatically closing this issue for housekeeping purposes. The issue labels indicate that it is unactionable at the moment or has already been addressed."
+    },
     "dry": false,
     "debug": false,
     "logFolder": "../logs",
