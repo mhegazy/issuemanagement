@@ -2,3 +2,4 @@ node_modules/
 lib/*
 logs/*
 src/token.json
+test/*
