@@ -25,7 +25,7 @@
         "closeMessage": "Automatically closing this issue for housekeeping purposes. The issue labels indicate that it is unactionable at the moment or has already been addressed."
     },
     "pr": {
-        "dayesSinceLastEdit": 180,
+        "dayesSinceLastEdit": 120,
         "maxProcessed": -1,
         "maxClosed": -1,
         "closeMessage": "Thanks for your contribution. This PR has not been updated in a while and cannot be automatically merged at the time being. For housekeeping purposes we are closing stale PRs. If you'd still like to continue working on this PR, please leave a message and one of the maintainers can reopen it.",
