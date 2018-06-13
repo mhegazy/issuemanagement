@@ -6,8 +6,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "./node_modules/.bin/tsc --p ./tsconfig.json",
     "watch": "./node_modules/.bin/tsc --w --p ./tsconfig.json",
-    "close": "node lib/close.js",
-    "closeprs": "node lib/closePRs.js"
+    "closeissues": "node lib/close.js",
+    "closeprs": "node lib/closePRs.js",
+    "close": "npm run build && npm run closeissues && npm run closeprs"
   },
   "keywords": [],
   "author": "Mohamed Hegazy",
@@ -15,6 +16,6 @@
   "dependencies": {
     "@types/node": "^6.0.54",
     "github": "^7.2.0",
-    "typescript": "^2.9.0-dev.20180519"
+    "typescript": "next"
   }
 }
