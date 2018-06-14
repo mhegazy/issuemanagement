@@ -134,17 +134,17 @@ async function closePRs() {
                 console.log(`== ${processedItems}. Processing pull requests #${item.number}...`);
             }
 
-            const pr = await github.pullRequests.get({ ...repo, number: item.number });
-            if (pr.mergeable === true) {
+            if (item.updated_at && new Date(item.updated_at) > cutoffDate) {
                 if (settings.debug) {
-                    console.log(`==== Pull Request is mergable, skipping.`);
+                    console.log(`==== Pull Request last updated on ${new Date(item.updated_at)}, skipping.`);
                 }
                 continue;
             }
 
-            if (item.updated_at && new Date(item.updated_at) > cutoffDate) {
+            const pr = await github.pullRequests.get({ ...repo, number: item.number });
+            if (pr.mergeable === true) {
                 if (settings.debug) {
-                    console.log(`==== Pull Request last updated on ${new Date(item.updated_at)}, skipping.`);
+                    console.log(`==== Pull Request is mergable, skipping.`);
                 }
                 continue;
             }
