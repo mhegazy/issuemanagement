@@ -8,7 +8,8 @@
     "watch": "./node_modules/.bin/tsc --w --p ./tsconfig.json",
     "closeissues": "node lib/close.js",
     "closeprs": "node lib/closePRs.js",
-    "close": "npm run build && npm run closeissues && npm run closeprs"
+    "close": "npm run build && npm run closeissues && npm run closeprs",
+    "lock": "node lib/lock.js"
   },
   "keywords": [],
   "author": "Mohamed Hegazy",
