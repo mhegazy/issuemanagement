@@ -13,6 +13,22 @@ function stringify(o: any) {
     return JSON.stringify(o, undefined, 2);
 }
 
+async function doWithRetry<T>(action: () => Promise<T>) {
+    let result: T;
+    for (let counter = 0; counter < 3; counter++) {
+        try {
+            return await action();
+            break;
+        }
+        catch (e) {
+            console.log();
+            console.log(`Found error: ${e}`);
+            if (counter == 2) throw e;
+            console.log(`Retrying (attempt ${counter + 1} out of 3) ...`);
+        }
+    }
+}
+
 async function lockIssues() {
     const issuesLocked: Issue[] = [];
     let issuesLockedCount = 0;
@@ -79,10 +95,19 @@ async function lockIssues() {
             processedPages++;
 
             if (!issues) {
-                issues = await github.issues.getForRepo({ ...repo, state: "closed", sort: "created", direction: "asc", page: settings.lock.firstPage > 0 ? settings.lock.firstPage : undefined });
+                issues = await doWithRetry(() => github.issues.getForRepo({ ...repo, state: "closed", sort: "created", direction: "asc", page: settings.lock.firstPage > 0 ? settings.lock.firstPage : undefined }));
             }
             else if (github.hasNextPage(issues)) {
-                issues = await github.getNextPage(issues);
+                for (let counter = 0; counter < 3; counter++) {
+                    try {
+                        issues = await doWithRetry(() => github.getNextPage(issues!));
+                        break;
+                    }
+                    catch (e) {
+                        console.log(`Found error: ${e}`);
+                        console.log(`Retrying (attempt ${counter + 1} out of 3) ...`);
+                    }
+                }
             }
             else {
                 break;
