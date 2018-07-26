@@ -6,7 +6,7 @@
     "logFolder": "../logs",
     "statsFolder": "../stats",
     "issue": {
-        "dayesSinceLastEdit": 14,
+        "dayesSinceLastEdit": 10,
         "maxProcessedIssues": -1,
         "maxClosedIssues": -1,
         "labelsToClose": [
@@ -25,13 +25,13 @@
         "closeMessage": "Automatically closing this issue for housekeeping purposes. The issue labels indicate that it is unactionable at the moment or has already been addressed."
     },
     "pr": {
-        "dayesSinceLastEdit": 120,
+        "dayesSinceLastEdit": 100,
         "maxProcessed": -1,
         "maxClosed": -1,
         "closeMessage": "Thanks for your contribution. This PR has not been updated in a while and cannot be automatically merged at the time being. For housekeeping purposes we are closing stale PRs. If you'd still like to continue working on this PR, please leave a message and one of the maintainers can reopen it.",
     },
     "lock": {
-        "dayesSinceLastEdit": 120,
+        "dayesSinceLastEdit": 100,
         "maxProcessed": -1,
         "maxLocked": -1,
         "firstIssue": -1,
